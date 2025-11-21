@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todoist Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header class="navbar">
+        <div class="navbar-left">
+            <h1>Todoist Dashboard</h1>
+        </div>
+
+        <nav class="navbar-center">
+            <a href="#" class="nav-link active" data-target="dashboard-section">Dashboard</a>
+            <a href="#" class="nav-link" data-target="add-task-section">Add Task</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Dashboard -->
+        <section id="dashboard-section" class="active-section">
+            <!-- Stats Cards -->
+            <section class="stats-cards">
+                <div class="card">
+                    Upcoming Tasks
+                    <span id="upcoming-count">0</span>
+                </div>
+                <div class="card">
+                    Overdue Tasks
+                    <span id="overdue-count">0</span>
+                </div>
+                <div class="card">
+                    Completed This Week
+                    <span id="completed-count">0</span>
+                </div>
+            </section>
+
+            <!-- Filters and Search -->
+            <section class="filters">
+                <input type="text" id="search-bar" placeholder="Search tasks..." />
+
+                <select id="sort-due-date">
+                    <option value="near-far">Due Date: Near → Far</option>
+                    <option value="far-near">Due Date: Far → Near</option>
+                </select>
+
+                <div>
+                    <button id="status-all" class="active">All</button>
+                    <button id="status-pending">Pending</button>
+                    <button id="status-done">Done</button>
+                </div>
+            </section>
+
+            <!-- Task Table -->
+            <section class="task-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Status</th>
+                            <th>Task Title</th>
+                            <th>Due Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="task-table-body">
+                        <!-- Filled from JS -->
+                    </tbody>
+                </table>
+            </section>
+        </section>
+
+        <!-- Add Task Section -->
+
+        <div id="message" class="message"></div>
+
+        <section id="add-task-section" class="hidden-section">
+            <h2>Add a Task</h2>
+            <form id="add-task-form">
+                <div class="form-group">
+                    <label for="task-title">Task Title:</label>
+                    <input type="text" id="task-title" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="task-desc">Description:</label>
+                    <textarea id="task-desc"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="task-due">Due Date:</label>
+                    <input type="date" id="task-due" required />
+                </div>
+
+                <button type="submit">Add Task</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2025 Todoist Dashboard
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
