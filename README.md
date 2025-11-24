@@ -2,7 +2,7 @@
 
 ## Project overview
 
-    TaskOra is a web-based dashboard designed to provide a interface for task management. 
+    TaskOra is a web-based app designed to provide a interface for task management. 
     It integrates with the Todoist API to allow users to read, organize, and create new tasks directly from the application. 
     TaskOra is deployed on a three-tier architecture.
 
@@ -52,7 +52,7 @@
   
     -Python 3.8+
     
-    -An active API key (provided by todoist)
+    -An active API key (provided by todoist app)
 
   **Configuration steps**
 
@@ -94,11 +94,13 @@
          -Key Detail: The application does not serve static files or the root (/) route, as this is delegated to Nginx on Lb01.
 
 
-     b. Deployment Steps: Copy the file into both servers, install dependencies, configure .env, and start/enable the taskora.service.
+     b. Deployment Steps: Copy the files into both servers, install dependencies, configure .env, and start/enable the taskora.service.
 
  2. Load balancer configuration
     
-    On the Lb01 server, Nginx is configured to handle all incoming traffic on port **8080**.
+    On the Lb01 server, Nginx is configured to handle all incoming traffic on port **8080** (IMPORTANT)
+
+    So we use **http://lb_IP:8080** to access the application
 
     a. Frontend placement:
     
@@ -114,7 +116,6 @@
     c. Nginx Server Block (/etc/nginx/sites-available/taskora): The configuration is split into three main parts:
 
         
-    
         -Root Location (/): Serves index.html directly from /var/www/taskora.
 
         -Static Location (/static): Serves all CSS/JS files directly, without hitting the backend.
@@ -155,9 +156,12 @@
 
 **Video link** 
 
+https://www.loom.com/share/a7c11ea076824d389ce744de0440f74f
 
 
-     
+
+
+Bendou Janna Vitalina Soeur 
 
         
      
